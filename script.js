@@ -1,12 +1,13 @@
-const student = {
-  name: "John",
-  city:"dimapur"
+// 1. Add the getKeys function directly to the global Object prototype
+Object.prototype.getKeys = function() {
+  // 'this' refers to the specific object calling the method
+  return Object.keys(this);
 };
 
-// Function to get all keys from the object
-function getKeys() {
-  console.log(Object.keys(student));
-}
+// 2. Create the student object (as requested by your comments)
+const student = {
+  name: "John",
+};
 
-// Testing the function
-getKeys(); // Output: ["name"]
+// Now any object can call .getKeys() directly!
+console.log(student.getKeys()); // Output: ["name"]
